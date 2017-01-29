@@ -8,7 +8,7 @@ apt-get update
 apt-get -y install software-properties-common -q
 apt-get -y install python-software-properties -q
 ### Install apache
-apt-add-repository ppa:ptn107/apache
+apt-add-repository -y ppa:ondrej/apache2
 apt-get update
 apt-get install -y apache2
 ## Install git
@@ -36,6 +36,7 @@ a2enmod mcrypt
 a2enmod rewrite
 a2enconf php7.0-fpm
 a2enconf phpmyadmin
+phpenmod mbstring
 service apache2 stop
 php -r '$cont = file_get_contents("/etc/apache2/apache2.conf"); file_put_contents("/etc/apache2/apache2.conf", preg_replace("/(<Directory \/var\/www\/>(.|\n)*AllowOverride )None/m","$1All",$cont));'
 service apache2 start
