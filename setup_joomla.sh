@@ -11,11 +11,11 @@ DBPREFIX="prfx_"
 JOOMLAVERSION="3.6.4"
 
 
-rm -f /var/www/index.html
+rm -f /var/www/html/index.html
 wget https://github.com/joomla/joomla-cms/releases/download/$JOOMLAVERSION/Joomla_$JOOMLAVERSION-Stable-Full_Package.zip -P /var/tmp/
 apt-get install unzip
-unzip /var/tmp/Joomla_$JOOMLAVERSION-Stable-Full_Package.zip -d /var/www
-cd /var/www/
+unzip /var/tmp/Joomla_$JOOMLAVERSION-Stable-Full_Package.zip -d /var/www/html/
+cd /var/www/html/
 chown -R www-data:www-data .
 usermod -a -G www-data vagrant
 sed -i "s/\$user = ''/\$user = '${DBUSER}'/" installation/configuration.php-dist
