@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     #config.vm.provision :shell, path: "setup_codeception.sh"
     config.vm.network "private_network", ip: "192.168.11.11"
     config.vm.provider "virtualbox" do |v|
-        v.name = "JMachine"
+        #v.name = "JMachine"
         #v.gui = true
     end
 end
